@@ -64,7 +64,7 @@
           run: docker push your-dockerhub-username/my_app
       ```
 3. Github
-   - This is an example of how I uploaded them on github:
+   - This is an example of how I uploaded them on Github:
      
      ![Picture7](https://github.com/Angelica-Valentina/tremend_intership_task/assets/129442693/b36d54c3-bb66-4402-8eef-e0d5e0e53569)
 

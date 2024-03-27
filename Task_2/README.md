@@ -22,7 +22,7 @@
      
     ![Picture9](https://github.com/Angelica-Valentina/tremend_intership_task/assets/129442693/79d3dc2d-922f-4a75-b184-be0e434c6854)
 
-2. Docker Build Workflow
+2. Docker Build Workflow (.github/workflows/docker-build.yml)
   - For automation, I chose to work with Docker Built Workflow because it automates the process of building and pushing a Docker image to Docker Hub whenever changes are pushed to the main branch.
   - It works like this:
     - Trigger: It runs on push events to the main branch.

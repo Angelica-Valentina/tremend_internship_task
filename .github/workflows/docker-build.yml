@@ -20,11 +20,11 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t angelicavalentina/my_app:latest .
+        run: docker build -t your-dockerhub-username/my_app:latest .
         working-directory: .
 
       - name: Tag Docker image
-        run: docker tag angelicavalentina/my_app:latest angelicavalentina/my_app:${{ github.sha }}
+        run: docker tag your-dockerhub-username/my_app:latest your-dockerhub-username/my_app:${{ github.sha }}
 
       - name: Push Docker image
-        run: docker push angelicavalentina/my_app
+        run: docker push your-dockerhub-username/my_app

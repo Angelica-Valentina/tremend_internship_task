@@ -1,14 +1,12 @@
 #!/bin/bash
 
-
-# 1. Print the home directory
+# 1.Print the home directory
 home_directory()
 {
     echo "1. Home directory: $(getent passwd | cut -d: -f6)"
 }
 
-
-# 2. List all usernames from the passwd file
+# 2.List all usernames from the passwd file
 usernames()
 {
     echo
@@ -16,8 +14,7 @@ usernames()
     cut -d: -f1 /etc/passwd
 }
 
-
-# 3. Count the number of users
+# 3.Count the number of users
 number_users()
 {
     echo
@@ -25,8 +22,7 @@ number_users()
     wc -l /etc/passwd
 }
 
-
-# 4. Find the home directory of a specific user (prompt to enter the username value)
+# 4.Find the home directory of a specific user (prompt to enter the username value)
 home_user()
 {
     echo
@@ -34,7 +30,7 @@ home_user()
     getent passwd $username | cut -d: -f6
 }
 
-# 5. List users with specific UID range (e.g. 1000-1010)
+# 5.List users with specific UID range (e.g. 1000-1010)
 users_uid()
 {
     echo
@@ -44,7 +40,7 @@ users_uid()
     awk -F: '$3 >= $lower_range && $3 <= $higher_range {print $1}' /etc/passwd
 }
 
-# 6. Find users with standard shells like /bin/bash or /bin/sh
+# 6.Find users with standard shells like /bin/bash or /bin/sh
 users_standard_shells()
 {
     echo
@@ -52,15 +48,14 @@ users_standard_shells()
     getent passwd | awk -F: '$7 ~ "/bin/bash|/bin/sh" {print $1}'
 }
 
-# 7. Replace the “/” character with “\” 
+# 7.Replace the “/” character with “\” 
 # character in the entire /etc/passwd file and redirect the content to a new file
 replace_redirect()
 {
     sed 's/\//\\/g' /etc/passwd > /root/passwd_modified
 }
 
-
-# 8. Print the private IP
+# 8.Print the private IP
 private_ip()
 {
     echo
@@ -82,8 +77,7 @@ switch_john()
     su - john
 }
 
-
-# 11. Print the home directory
+# 11.Print the home directory
 new_home_directory()
 {
     echo

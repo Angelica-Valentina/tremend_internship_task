@@ -29,35 +29,42 @@
         - It checks out the code from the repository.
         - It authenticates with Docker Hub using the provided username and password secrets.
         - It builds a Docker image using the Dockerfile in the repostory, tags it with the SHA of the commit, and pushes it to Docker Hub.
-    ```
-    name: Docker Build and Push
+      ```
+      name: Docker Build and Push
+  
+      on:
+        push:
+          branches:
+            - main
+            - master
+      
+      jobs:
+        build:
+          runs-on: ubuntu-latest
+          steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+  
+        - name: Login to Docker Hub
+          uses: docker/login-action@v3
+          with:
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_PASSWORD }}
+  
+        - name: Build Docker image
+          run: docker build -t your-dockerhub-username/my_app:latest .
+          working-directory: .
+  
+        - name: Tag Docker image
+          run: docker tag your-dockerhub-username/my_app:latest your-dockerhub-username/my_app:${{ github.sha }}
+  
+        - name: Push Docker image
+          run: docker push your-dockerhub-username/my_app
+      ```
+3. Github
+   - It is an example of how I uploaded them on github:
+     
+     ![Picture7](https://github.com/Angelica-Valentina/tremend_intership_task/assets/129442693/b36d54c3-bb66-4402-8eef-e0d5e0e53569)
 
-    on:
-      push:
-        branches:
-          - main
-          - master
-    
-    jobs:
-      build:
-        runs-on: ubuntu-latest
-        steps:
-          - name: Checkout code
-            uses: actions/checkout@v3
+     ![Picture8](https://github.com/Angelica-Valentina/tremend_intership_task/assets/129442693/f5501735-a5fc-4f56-9794-bd0bc6b065a2)
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Build Docker image
-        run: docker build -t your-dockerhub-username/my_app:latest .
-        working-directory: .
-
-      - name: Tag Docker image
-        run: docker tag your-dockerhub-username/my_app:latest your-dockerhub-username/my_app:${{ github.sha }}
-
-      - name: Push Docker image
-        run: docker push your-dockerhub-username/my_app
-    ```

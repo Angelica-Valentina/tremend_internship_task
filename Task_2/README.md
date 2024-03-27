@@ -18,7 +18,9 @@
   
     ![Picture6](https://github.com/Angelica-Valentina/tremend_intership_task/assets/129442693/626031fa-5731-40ef-bf2d-02b37197fdbe)
 
-  - I set up the a Docker Registry. 
+  - I set up the a Docker Repostory:
+     
+    ![Picture9](https://github.com/Angelica-Valentina/tremend_intership_task/assets/129442693/79d3dc2d-922f-4a75-b184-be0e434c6854)
 
 2. Docker Build Workflow
   - For automation, I chose to work with Docker Built Workflow because it automates the process of building and pushing a Docker image to Docker Hub whenever changes are pushed to the main branch.

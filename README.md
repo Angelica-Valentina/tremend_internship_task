@@ -4,16 +4,19 @@
    ```
    docker run -d --name mysql_db -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 mysql:latest
    ```
+
    
 2. Database named "company"
    ```
    CREATE DATABASE company;
    ```
 
+
 3. Import company.sql:
    ```
    mysql -u root -p company < company.sql
    ```
+
 
 4. Creation of a user and assigning permissions
    ```
@@ -21,6 +24,7 @@
    GRANT ALL PRIVILEGES ON company.* TO 'user'@'%';
    FLUSH PRIVILEGES;
    ```
+
 
 5. Finding the average salary for each department
    ```
